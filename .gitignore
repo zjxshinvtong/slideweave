@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+dist-server/
+coverage/
+playwright-report/
+test-results/
+
+# local secrets — never commit
+.env
+.env.local
+.env.*.local
+
+# editor & OS
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# generated test artifacts
+exports/
+shots/
+test-results/
+playwright-report/
+.tmp-*
+
+.vercel

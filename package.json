@@ -1,0 +1,42 @@
+{
+  "name": "slideweave-ai",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "织演 · AI 网页 PPT 生成器",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c yellow,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:fn": "node scripts/build-fn.mjs",
+    "build:pages": "node scripts/build-pages-fn.mjs",
+    "build:all": "npm run build && npm run build:fn && npm run build:pages",
+    "start": "tsx server/index.ts",
+    "deploy": "npm run build:all && vercel --prod --yes",
+    "deploy:pages": "npm run build:all && wrangler pages deploy dist --project-name slideweave --branch main",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm run build && playwright test"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.3.0",
+    "lucide-react": "^0.552.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.2.0",
+    "concurrently": "^9.2.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.7",
+    "vitest": "^4.0.18"
+  }
+}
