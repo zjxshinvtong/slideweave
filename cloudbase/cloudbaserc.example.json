@@ -1,0 +1,23 @@
+﻿{
+  "envId": "slideweave-d5g8tsj23944c6b5d",
+  "functionRoot": "./functions",
+  "functions": [
+    {
+      "name": "api",
+      "timeout": 60,
+      "memorySize": 512,
+      "runtime": "Nodejs18.15",
+      "handler": "index.main",
+      "installDependency": false,
+      "description": "Slideweave API: /api/health, /api/generate",
+      "envVariables": {
+        "DEEPSEEK_API_KEY": "sk-REPLACE_ME",
+        "DEEPSEEK_BASE_URL": "https://api.deepseek.com/v1",
+        "DEEPSEEK_MODEL": "deepseek-v4-pro",
+        "MAX_SLIDES": "8",
+        "RATE_LIMIT_PER_HOUR": "20"
+      }
+    }
+  ]
+}
+

@@ -39,6 +39,7 @@ import { generateDeck, GenerationError } from './lib/sse.js';
 import { downloadStandaloneHtml } from './lib/exportHtml.js';
 import { SlideRenderer } from './components/SlideRenderer.js';
 import { Presentation as PresentationMode } from './components/Presentation.js';
+import { apiUrl } from './lib/apiBase';
 
 type Phase = 'idle' | 'generating' | 'ready' | 'error';
 
@@ -159,7 +160,7 @@ export default function App() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/api/health')
+    fetch(apiUrl('/api/health'))
       .then(async (response) => {
         if (!response.ok) throw new Error('health failed');
         return (await response.json()) as Health;

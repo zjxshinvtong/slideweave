@@ -1,0 +1,16 @@
+node_modules
+dist
+server-dist
+__pycache__
+resume_build
+*.docx
+*.pdf
+*.pptx
+*.py
+*.log
+.env
+.env.local
+.env.*.local
+.vscode
+.idea
+.git

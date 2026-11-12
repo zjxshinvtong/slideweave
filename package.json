@@ -10,6 +10,7 @@
     "dev:client": "vite",
     "build": "tsc --noEmit && vite build",
     "build:fn": "node scripts/build-fn.mjs",
+    "build:server": "node scripts/build-server.mjs",
     "build:pages": "node scripts/build-pages-fn.mjs",
     "build:all": "npm run build && npm run build:fn && npm run build:pages",
     "start": "tsx server/index.ts",

@@ -1,4 +1,5 @@
 import type { Deck, Slide, ThemeId } from '../../shared/schema.js';
+import { apiUrl } from './apiBase';
 
 export type StreamEvent =
   | { event: 'meta'; data: { model: string; mock: boolean; slideCount: number } }
@@ -80,7 +81,7 @@ function dispatch(raw: { event: string; data: string }, onEvent: (event: StreamE
 
 /** Reads the backend's SSE stream from a POST fetch response. */
 export async function generateDeck(options: GenerateOptions): Promise<void> {
-  const response = await fetch('/api/generate', {
+  const response = await fetch(apiUrl('/api/generate'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
